@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow — Project Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📑</text></svg>" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">flow<span> / boards</span></div>
+    <div class="header-right">
+      <div class="font-size-control">
+        <button class="btn-icon" id="fontDecrease" title="Decreace text">A<sup style="font-size:0.55em">−</sup></button>
+        <span class="font-size-label" id="fontSizeLabel">14</span>
+        <button class="btn-icon" id="fontIncrease" title="Increace text">A<sup style="font-size:0.55em">+</sup></button>
+      </div>
+      <div class="header-divider"></div>
+      <button class="btn-icon" id="themeToggle" title="Change Theme">
+        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="btn" id="newProjectBtn">+ new project</button>
+    </div>
+  </header>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-label">Projects</span>
+      </div>
+      <div class="projects-list" id="projectsList"></div>
+      
+    </aside>
+
+    <!-- MAIN BOARD -->
+    <main class="main" id="mainContent">
+      <div class="no-project">
+        <div class="no-project-icon">⊹</div>
+        <p>select or create a project</p>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: New Project -->
+  <div class="overlay" id="newProjectModal" style="display:none">
+    <div class="modal">
+      <div class="modal-title">New project</div>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="newProjectName" placeholder="ej. My website" maxlength="60" autocomplete="off">
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="cancelNewProject">Cancel</button>
+        <button class="btn btn-primary" id="confirmNewProject">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: New Task -->
+  <div class="overlay" id="newTaskModal" style="display:none">
+    <div class="modal">
+      <div class="modal-title">New task</div>
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="newTaskTitle" placeholder="ej. Debug code" maxlength="80" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="newTaskDesc" placeholder="Describe the task..." rows="3"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="cancelNewTask">Cancel</button>
+        <button class="btn btn-primary" id="confirmNewTask">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
